@@ -1,0 +1,39 @@
+<div class="section-content section-content-p30">
+  <div class="container-fluid">
+
+    <div class="row">
+      <h1 class="mb-4 col-12 text-center">Games</h1>
+    </div>
+
+
+    <div class="row">
+      <div class="list-group mb-3 col-12">
+        <div *ngFor="let tempGame of games" class="list-group-item">
+          <div class="row">
+            <div class="col-8">
+              <h4 class="align-middle">Game-ID: {{tempGame.id}}</h4>
+              <p class="align-middle">Status: </p>
+
+              Players:
+              <div *ngFor="let tempUser of tempGame.users" style="display:inline;">
+                <span class="rounded p-2 mr-3" style="background: darkseagreen">{{tempUser.nickName}}</span>
+              </div>
+
+            </div>
+
+            <div class="col-4">
+              <!-- TODO add friend-->
+              <button class="btn btn-primary btn-sm" (click)="addPlayerToGame()">Join game</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- if product list is empty, print a message-->
+
+      <div *ngIf="games?.length == 0" class="alert alert-warning col-md-12" role="alert">
+        No games found.
+      </div>
+    </div>
+  </div>
+</div>

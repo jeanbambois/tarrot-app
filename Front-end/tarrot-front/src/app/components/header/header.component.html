@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark row justify-content-center ">
+  <div class="container-fluid text-left">
+    <ul class="nav navbar-nav ">
+
+      <li routerLinkActive="active" class="nav-item mr-4">
+        <a routerLink="homepage" class="nav-link" style="padding: 0; margin: 0;">
+          <img src="../../assets/img/logo/Logo-21.png" style="height: 30px; width: 30px;">
+        </a>
+      </li>
+
+      <li routerLinkActive="active" class="nav-item mr-4">
+        <a routerLink="lobby" class="nav-link align-middle">Create a game</a>
+      </li>
+
+      <li routerLinkActive="active" class="nav-item mr-4">
+        <a routerLink="users" class="nav-link">User list</a>
+      </li>
+
+      <li routerLinkActive="active" class="nav-item mr-4">
+        <a routerLink="games" class="nav-link">Game list</a>
+      </li>
+    </ul>
+
+
+    <ul class="nav navbar-nav ">
+        <li routerLinkActive="active" class="nav-item mr-4" *ngIf=" !isAuth " >
+          <a routerLink="login" class="nav-link">Login</a>
+        </li>
+
+        <li routerLinkActive="active" class="nav-item mr-4"  *ngIf=" !isAuth ">
+          <a routerLink="signin" class="nav-link">Sign in</a>
+        </li>
+
+        <li routerLinkActive="active" class="nav-item mr-4"  *ngIf=" isAuth " >
+          <a routerLink="homepage" class="nav-link" (click)="this.authService.logout()">Logout</a>
+        </li>
+    </ul>
+
+  </div>
+</nav>

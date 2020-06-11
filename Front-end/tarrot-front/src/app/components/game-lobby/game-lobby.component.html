@@ -1,0 +1,78 @@
+<div class="row">
+  <h1 class="mb-4 col-12 text-center">Lobby - New game</h1>
+</div>
+
+
+
+<div class="row">
+
+  <!-- USER LIST -->
+  <div class="col-4 border border-secondary rounded">
+    <h5>Player list</h5>
+    <div class="list-group mb-3 col-12">
+      <div *ngFor="let tempUser of users" class="list-group-item">
+        <div class="row">
+          <div class="col-8">
+            <h2 class="align-middle">{{tempUser.nickName}}</h2>
+            <h6 class="align-middle">{{tempUser.firstName}} {{tempUser.lastName}}</h6>
+            <div class="align-middle">Tarrot-ID: {{tempUser.id}}</div>
+          </div>
+
+          <div class="col-4">
+            <!-- TODO add friend-->
+            <button class="btn btn-primary btn-sm" (click)="addToGame(tempUser.id)">Add to game</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="users?.length == 0" class="alert alert-warning col-md-12" role="alert">
+      No users found.
+    </div>
+  </div>
+  <!-- END USER LIST -->
+
+
+
+
+  <!-- GAME -->
+  <div class="col-8 border border-secondary rounded">
+    <h5>Game</h5>
+
+    <div *ngIf="(players?.length > 0) && (players?.length < 5)" class="alert alert-warning col-md-12" role="alert">
+      Missing {{5 - players?.length}} players to start the game.
+    </div>
+    <div *ngIf="players?.length == 5">
+      <button class="btn btn-success" (click)="launchGame()">Play</button>
+    </div>
+
+    <div class="list-group mb-3 col-12">
+      <div *ngFor="let tempUser of players" class="list-group-item">
+        <div class="row">
+          <div class="col-8">
+            <h2 class="align-middle">{{tempUser.nickName}}</h2>
+            <h6 class="align-middle">{{tempUser.firstName}} {{tempUser.lastName}}</h6>
+            <div class="align-middle">Tarrot-ID: {{tempUser.id}}</div>
+          </div>
+          <div class="col-4">
+            <button class="btn btn-danger" (click)="removePlayer(tempUser)">Remove</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- if product list is empty, print a message-->
+
+    <div *ngIf="players?.length == 0" class="alert alert-danger col-md-12" role="alert">
+      No players yet.
+    </div>
+
+  </div>
+  <!-- END GAME -->
+
+
+</div>
+
+
+
+

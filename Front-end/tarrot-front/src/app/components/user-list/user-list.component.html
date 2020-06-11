@@ -1,0 +1,39 @@
+<div class="section-content section-content-p30">
+  <div class="container-fluid">
+
+    <div class="row">
+      <h1 class="mb-4 col-12 text-center">Users</h1>
+    </div>
+
+
+    <div class="row">
+      <div class="list-group mb-3 col-12">
+        <div *ngFor="let tempUser of users" class="list-group-item">
+          <div class="row">
+            <div class="col-8">
+              <h2 class="align-middle">{{tempUser.nickName}}</h2>
+              <h6 class="align-middle">{{tempUser.firstName}} {{tempUser.lastName}}</h6>
+              <div class="align-middle">Tarrot-ID: {{tempUser.id}}</div>
+            </div>
+
+            <div class="col-4">
+              <!-- TODO add friend-->
+              <button class="btn btn-primary btn-sm" (click)="addToFriend()">Add to friend</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- if product list is empty, print a message-->
+
+      <div *ngIf="users?.length == 0" class="alert alert-warning col-md-12" role="alert">
+        No users found.
+      </div>
+    </div>
+
+    <!-- begin footer-->
+
+    <!-- end footer-->
+
+  </div>
+</div>

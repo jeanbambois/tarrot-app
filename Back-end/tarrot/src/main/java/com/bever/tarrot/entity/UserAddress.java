@@ -29,6 +29,7 @@ public class UserAddress {
     @Column(name = "zip_code")
     private String zipCode;
 
-    @OneToOne(mappedBy = "address")
+    @OneToOne(mappedBy = "address",
+            cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     private User user;
 }
